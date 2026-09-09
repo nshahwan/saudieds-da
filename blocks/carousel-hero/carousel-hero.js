@@ -1,5 +1,3 @@
-import { fetchPlaceholders } from '../../scripts/aem.js';
-
 function updateActiveSlide(slide) {
   const block = slide.closest('.carousel-hero');
   const slideIndex = parseInt(slide.dataset.slideIndex, 10);
@@ -99,10 +97,10 @@ export default async function decorate(block) {
   const rows = block.querySelectorAll(':scope > div');
   const isSingleSlide = rows.length < 2;
 
-  const placeholders = await fetchPlaceholders();
+  const placeholders = {};
 
   block.setAttribute('role', 'region');
-  block.setAttribute('aria-roledescription', placeholders['carousel'] || 'Carousel');
+  block.setAttribute('aria-roledescription', placeholders.carousel || 'Carousel');
 
   const container = document.createElement('div');
   container.classList.add('carousel-hero-slides-container');
