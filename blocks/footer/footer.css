@@ -1,20 +1,199 @@
+/* Saudia footer — content-first, mobile-first.
+   Sections: newsletter band, link columns, awards, social+payments, legal. */
+
 footer {
-  background-color: var(--light-color);
-  font-size: var(--body-font-size-xs);
+  background-color: var(--background-color, #fff);
+  border-top: 1px solid #dadada;
+  font-size: 14px;
+  color: var(--text-color, #1a1a1a);
 }
 
-footer .footer > div {
-  margin: auto;
+footer .footer-inner {
   max-width: 1200px;
-  padding: 40px 24px 24px;
+  margin: 0 auto;
+  padding: 32px 24px 24px;
 }
 
-footer .footer p {
+footer .footer-inner > div {
+  padding: 24px 0;
+  border-bottom: 1px solid #ededed;
+}
+
+footer .footer-inner > div:last-child {
+  border-bottom: 0;
+}
+
+footer a {
+  color: var(--text-color, #1a1a1a);
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+footer ul {
+  list-style: none;
   margin: 0;
+  padding: 0;
+}
+
+footer h2,
+footer h3 {
+  margin: 0 0 12px;
+}
+
+/* --- Newsletter band --- */
+footer .footer-newsletter h2 {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+footer .footer-newsletter p {
+  margin: 0 0 12px;
+}
+
+footer .footer-newsletter a[href*="newsletter"] {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border-radius: 2px;
+  background-color: rgb(0 128 62);
+  color: #fff;
+  font-weight: 600;
+}
+
+footer .footer-newsletter a[href*="newsletter"]:hover {
+  background-color: rgb(0 108 52);
+  text-decoration: none;
+}
+
+footer .footer-newsletter p:last-child {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+footer .footer-newsletter img {
+  height: 40px;
+  width: auto;
+}
+
+/* --- Link columns --- */
+footer .footer-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px 16px;
+}
+
+footer .footer-column h3 {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+footer .footer-column li {
+  margin: 0 0 8px;
+}
+
+footer .footer-column a {
+  color: rgb(0 0 0 / 70%);
+}
+
+/* --- Awards --- */
+footer .footer-awards ul {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 24px;
+}
+
+footer .footer-awards img {
+  height: 56px;
+  width: auto;
+}
+
+/* --- Social + payments --- */
+footer .footer-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+footer .footer-social ul,
+footer .footer-payments ul {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+}
+
+footer .footer-social ul a {
+  display: inline-flex;
+  transition: opacity 0.2s;
+}
+
+footer .footer-social ul a:hover {
+  opacity: 0.7;
+}
+
+footer .footer-social img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+footer .footer-payments img {
+  height: 24px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* --- Legal row --- */
+footer .footer-legal ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  margin-bottom: 16px;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+footer .footer-legal ul a {
+  color: rgb(0 0 0 / 70%);
+  font-size: 13px;
+}
+
+footer .footer-copyright {
+  margin: 8px 0;
+  color: rgb(0 0 0 / 55%);
+  font-size: 13px;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+footer p.footer-locale a {
+  color: rgb(0 128 62);
+  font-weight: 600;
+}
+
+@media (width >= 600px) {
+  footer .footer-columns {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 @media (width >= 900px) {
-  footer .footer > div {
-    padding: 40px 32px 24px;
+  footer .footer-inner {
+    padding: 48px 32px 32px;
+  }
+
+  footer .footer-columns {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 32px 24px;
+  }
+
+  footer .footer-meta {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
   }
 }
