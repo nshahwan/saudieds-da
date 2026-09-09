@@ -1,36 +1,103 @@
+/* cards-article — article list (source: saudia.com .imagelinklist--vertical) */
+
+.cards-article {
+  /* extracted brand values from source */
+  --cards-article-link-color: rgb(2 102 52);      /* Saudia dark green "Learn more" */
+  --cards-article-desc-color: rgb(0 0 0 / 70%);   /* description text */
+}
+
 .cards-article > ul {
   list-style: none;
   margin: 0;
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  row-gap: 24px;
 }
 
 .cards-article > ul > li {
   display: grid;
   grid-template-columns: 120px 1fr;
-  gap: 16px;
+  column-gap: 16px;
   align-items: start;
 }
 
 .cards-article .cards-article-card-image {
   line-height: 0;
+  border-radius: 4px;
+  overflow: hidden;
 }
 
 .cards-article .cards-article-card-image img {
+  display: block;
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 282 / 218;
   object-fit: cover;
+  border-radius: 4px;
 }
 
 .cards-article .cards-article-card-body {
   margin: 0;
 }
 
-@media (width >= 600px) {
+.cards-article .cards-article-card-body h3 {
+  margin: 0;
+  font-family: var(--body-font-family);
+  font-size: 20px;
+  line-height: 1.25;
+  font-weight: 600;
+  letter-spacing: -0.24px;
+  color: var(--text-color);
+}
+
+.cards-article .cards-article-card-body p {
+  margin: 8px 0 0;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+  color: var(--cards-article-desc-color);
+}
+
+/* "Learn more" link + chevron */
+main .cards-article .cards-article-card-body a:any-link {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 8px;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  color: var(--cards-article-link-color);
+  text-decoration: none;
+}
+
+main .cards-article .cards-article-card-body a:any-link:hover {
+  color: var(--cards-article-link-color);
+  text-decoration: none;
+}
+
+.cards-article .cards-article-card-body a:any-link::after {
+  content: "";
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  margin-left: 6px;
+  border-top: 2px solid currentcolor;
+  border-right: 2px solid currentcolor;
+  transform: translateY(-1px) rotate(45deg);
+}
+
+@media (width >= 900px) {
+  .cards-article > ul {
+    row-gap: 32px;
+  }
+
   .cards-article > ul > li {
-    grid-template-columns: 160px 1fr;
-    gap: 24px;
+    grid-template-columns: 280px 1fr;
+    column-gap: 24px;
+  }
+
+  .cards-article .cards-article-card-body h3 {
+    font-size: 24px;
+    line-height: 32px;
   }
 }

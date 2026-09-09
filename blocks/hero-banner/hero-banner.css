@@ -1,49 +1,129 @@
-.hero-banner-container .hero-banner-wrapper {
-  max-width: unset;
-  padding: 0;
-}
+/* hero-banner: promotional banner (source: saudia.com .custom-carousel.image--teaser) */
+
+/* Contained rounded card, background image covering it, left-aligned white text + CTA. */
 
 .hero-banner {
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
-  padding: 32px 24px;
   min-height: 220px;
   overflow: hidden;
+  border-radius: 4px;
 }
 
-.hero-banner h1,
-.hero-banner h2,
-.hero-banner h3,
-.hero-banner h4,
-.hero-banner h5,
-.hero-banner h6,
-.hero-banner p {
-  max-width: 520px;
-  color: var(--background-color);
-}
-
-.hero-banner.no-image * {
-  color: var(--text-color);
-}
-
+/* Background image covers the whole banner */
 .hero-banner picture {
   position: absolute;
-  z-index: -1;
   inset: 0;
+  z-index: 0;
+  display: block;
 }
 
 .hero-banner img {
-  object-fit: cover;
   width: 100%;
   height: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+
+/* Content row sits above the image (last row = the text cell; also the only
+   row when there is no image) */
+.hero-banner > div:last-child {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+.hero-banner > div:last-child > div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 596px;
+  padding: 32px 24px;
+}
+
+/* Heading */
+.hero-banner h2 {
+  margin: 0 0 12px;
+  color: rgb(255 255 255);
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.6px;
+}
+
+/* Description */
+.hero-banner p {
+  margin: 0 0 20px;
+  color: rgb(255 255 255);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+/* CTA button (plain link -- style it as the source's near-black tertiary button) */
+.hero-banner p:last-child {
+  margin: 0;
+}
+
+.hero-banner a:any-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  align-self: flex-start;
+  padding: 14px 18px;
+  border: 2px solid rgb(26 26 26);
+  border-radius: 2px;
+  background-color: rgb(26 26 26);
+  color: rgb(255 255 255);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.hero-banner a:any-link::after {
+  content: "\2192"; /* → arrow, matches source CTA */
+  font-size: 1.1em;
+  line-height: 1;
+}
+
+.hero-banner a:hover,
+.hero-banner a:focus-visible {
+  background-color: rgb(0 0 0);
+  border-color: rgb(0 0 0);
+  color: rgb(255 255 255);
+  text-decoration: none;
+}
+
+/* No background image: dark text on light surface */
+.hero-banner.no-image {
+  background-color: var(--light-color);
+}
+
+.hero-banner.no-image h2,
+.hero-banner.no-image p {
+  color: var(--text-color);
 }
 
 @media (width >= 900px) {
   .hero-banner {
-    padding: 48px 40px;
-    min-height: 300px;
+    min-height: 372px;
+  }
+
+  .hero-banner > div:last-child > div {
+    padding: 62px 32px;
+  }
+
+  .hero-banner h2 {
+    font-size: 40px;
+    line-height: 48px;
+    letter-spacing: -1.2px;
+  }
+
+  .hero-banner a:any-link {
+    padding: 16px 18px;
+    font-size: 18px;
   }
 }

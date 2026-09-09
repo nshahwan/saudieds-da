@@ -1,19 +1,25 @@
+/* cards-promo -- Saudia "Plan your next trip" promotional tiles.
+   Full-bleed image tiles with a bottom readability gradient, white overlay
+   title at lower-left, and a green circular arrow affordance at lower-right.
+   Values extracted from source .offer-content tiles on saudia.com. */
+
 .cards-promo > ul {
   list-style: none;
   margin: 0;
   padding: 0;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 16px;
+  gap: 24px;
 }
 
 .cards-promo > ul > li {
   position: relative;
   overflow: hidden;
-  min-height: 180px;
+  aspect-ratio: 4 / 3;
   display: flex;
 }
 
+/* Background image fills the tile */
 .cards-promo .cards-promo-card-image {
   position: absolute;
   inset: 0;
@@ -26,17 +32,57 @@
   object-fit: cover;
 }
 
+/* Dark readability gradient across the bottom of the image */
+.cards-promo .cards-promo-card-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(rgb(26 38 25 / 0%) 50%, rgb(22 32 21 / 80%) 100%);
+  pointer-events: none;
+}
+
+/* Title overlay anchored to the lower-left */
 .cards-promo .cards-promo-card-body {
   position: relative;
   z-index: 1;
   align-self: flex-end;
-  margin: 16px;
-  color: white;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+
+  /* leave room on the right for the arrow affordance */
+  padding: 24px 104px 24px 24px;
+  color: #fff;
+}
+
+.cards-promo .cards-promo-card-body h3 {
+  margin: 0;
+  color: #fff;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 32px;
+}
+
+/* Green circular arrow affordance, lower-right */
+.cards-promo > ul > li::after {
+  content: "";
+  position: absolute;
+  right: 24px;
+  bottom: 24px;
+  z-index: 2;
+  width: 40px;
+  height: 40px;
+  border-radius: 40px;
+  background-color: rgb(0 128 62);
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>');
+  background-repeat: no-repeat;
+  background-position: center;
+  pointer-events: none;
 }
 
 @media (width >= 900px) {
   .cards-promo > ul {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 24px;
   }
 }
