@@ -3,20 +3,12 @@
  * via getComputedStyle on 2026-09-09.
  */
 
-/* Full-bleed: break the block out of the 1200px section container.
-   Only the carousel wrapper breaks out; sibling default content (the notice
-   bar) keeps its normal gutter. */
-.carousel-hero-wrapper {
-  max-width: none !important;
-  width: 100vw;
-  margin-left: calc(50% - 50vw);
-  margin-right: calc(50% - 50vw);
-  padding-left: 0;
-  padding-right: 0;
-}
-
+/* Keep the carousel within the page content margin (like the promo banners),
+   with rounded corners to match the other banner cards. */
 .carousel-hero {
   position: relative;
+  overflow: hidden;
+  border-radius: 4px;
 }
 
 .carousel-hero .carousel-hero-slides-container {
