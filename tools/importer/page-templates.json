@@ -1,0 +1,176 @@
+{
+  "metadata": {
+    "projectType": "da"
+  },
+  "templates": [
+    {
+      "name": "home",
+      "urls": [
+        "https://www.saudia.com"
+      ],
+      "representativeUrl": "https://www.saudia.com",
+      "description": "Saudia homepage: hero carousel, flight-booking widget, info bar, destination fares, promo tiles, promo banners, and an experiences article list.",
+      "urlPattern": "/",
+      "blocks": [
+        {
+          "name": "carousel-hero",
+          "instances": [
+            ".custom-carousel.homeCarousel"
+          ]
+        },
+        {
+          "name": "widget",
+          "instances": [
+            ".booking"
+          ]
+        },
+        {
+          "name": "cards-fares",
+          "instances": [
+            ".featuredlist"
+          ]
+        },
+        {
+          "name": "cards-promo",
+          "instances": [
+            ".offerforyou-content"
+          ]
+        },
+        {
+          "name": "hero-banner",
+          "instances": [
+            ".custom-carousel.image--teaser"
+          ]
+        },
+        {
+          "name": "cards-article",
+          "instances": [
+            ".imagelinklist--vertical"
+          ]
+        }
+      ],
+      "sections": [
+        {
+          "id": "s1",
+          "name": "hero-carousel",
+          "selector": [
+            ".custom-carousel.homeCarousel"
+          ],
+          "style": null,
+          "blocks": [
+            "carousel-hero"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "s2",
+          "name": "booking-widget",
+          "selector": [
+            ".booking"
+          ],
+          "style": null,
+          "blocks": [
+            "widget"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "s3",
+          "name": "info-bar",
+          "selector": [
+            ".top-header-carousel"
+          ],
+          "style": null,
+          "blocks": [],
+          "defaultContent": [
+            ".top-header-carousel .content"
+          ]
+        },
+        {
+          "id": "s4",
+          "name": "best-fares",
+          "selector": [
+            ".featuredlist"
+          ],
+          "style": null,
+          "blocks": [
+            "cards-fares"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "s5",
+          "name": "plan-next-trip",
+          "selector": [
+            ".offerforyou-content"
+          ],
+          "style": null,
+          "blocks": [
+            "cards-promo"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "s6",
+          "name": "flight-hotel-deals",
+          "selector": [
+            ".custom-carousel.image--teaser"
+          ],
+          "style": null,
+          "blocks": [
+            "hero-banner"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "s7",
+          "name": "shop-with-miles",
+          "selector": [
+            ".custom-carousel.image--teaser"
+          ],
+          "style": null,
+          "blocks": [
+            "hero-banner"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "s8",
+          "name": "be-first-to-know",
+          "selector": [
+            ".custom-carousel.image--teaser"
+          ],
+          "style": null,
+          "blocks": [
+            "hero-banner"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "s9",
+          "name": "exceptional-experiences",
+          "selector": [
+            ".imagelinklist--vertical"
+          ],
+          "style": null,
+          "blocks": [
+            "cards-article"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "s10",
+          "name": "visit-saudi",
+          "selector": [
+            ".custom-carousel.image--teaser"
+          ],
+          "style": null,
+          "blocks": [
+            "hero-banner"
+          ],
+          "defaultContent": []
+        }
+      ]
+    }
+  ]
+}

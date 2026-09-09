@@ -1,0 +1,10 @@
+{
+  "variantName": "carousel-hero",
+  "baseBlock": "carousel",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": "Full-bleed rotating hero slides; each slide has a background photo with a dark gradient overlay, a large white heading, and a single green CTA button aligned to the lower-left. Slide indicator dots at the bottom.",
+  "contentPattern": "One row per slide. Each row has two cells: cell 1 = background image, cell 2 = heading + optional body + CTA link.",
+  "usage": "Top-of-page promotional slideshow rotating multiple full-width banner slides.",
+  "options": [],
+  "memberVariantIds": ["carousel-hero"]
+}

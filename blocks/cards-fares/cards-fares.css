@@ -1,0 +1,34 @@
+.cards-fares > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.cards-fares > ul > li {
+  display: flex;
+  flex-direction: column;
+}
+
+.cards-fares .cards-fares-card-image {
+  line-height: 0;
+}
+
+.cards-fares > ul > li img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.cards-fares .cards-fares-card-body {
+  margin: 12px 0 0;
+}
+
+@media (width >= 900px) {
+  .cards-fares > ul {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "variantName": "hero-banner",
+  "baseBlock": "hero",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": "Full-width promotional banner with a background photo, a heading and optional body text left-aligned, and a dark rounded CTA button. Reused across multiple promo sections (Flight+Hotel Deals, Shop with Miles, Be first to know, Visit Saudi).",
+  "contentPattern": "First cell = background image; following content = heading + optional body + CTA link.",
+  "usage": "Standalone promotional banner strip with background image and call-to-action.",
+  "options": [],
+  "memberVariantIds": ["hero-banner"]
+}

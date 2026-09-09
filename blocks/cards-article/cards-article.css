@@ -1,0 +1,36 @@
+.cards-article > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.cards-article > ul > li {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 16px;
+  align-items: start;
+}
+
+.cards-article .cards-article-card-image {
+  line-height: 0;
+}
+
+.cards-article .cards-article-card-image img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.cards-article .cards-article-card-body {
+  margin: 0;
+}
+
+@media (width >= 600px) {
+  .cards-article > ul > li {
+    grid-template-columns: 160px 1fr;
+    gap: 24px;
+  }
+}

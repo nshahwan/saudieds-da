@@ -1,0 +1,10 @@
+{
+  "variantName": "cards-fares",
+  "baseBlock": "cards",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": "Responsive grid of destination fare tiles: 2 columns on mobile, 4 on desktop. Each tile has a photo on top, a destination name, a green 'From SAR' price, and a small round-trip subtitle. Borderless tiles.",
+  "contentPattern": "One row per destination. Each row: cell 1 = destination image, cell 2 = destination name + price + subtitle text.",
+  "usage": "Destination fares grid, e.g. 'Best fares from Jeddah'.",
+  "options": [],
+  "memberVariantIds": ["cards-fares"]
+}

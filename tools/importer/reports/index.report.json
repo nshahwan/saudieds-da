@@ -1,0 +1,19 @@
+{
+  "status": "success",
+  "url": "https://www.saudia.com",
+  "path": "index",
+  "timestamp": "2026-09-09T11:55:21.666Z",
+  "title": "Saudia | Book flights | Hotels | Holidays",
+  "template": "home",
+  "blocks": [
+    "carousel-hero",
+    "widget",
+    "cards-fares",
+    "cards-promo",
+    "hero-banner",
+    "hero-banner",
+    "hero-banner",
+    "hero-banner",
+    "cards-article"
+  ]
+}

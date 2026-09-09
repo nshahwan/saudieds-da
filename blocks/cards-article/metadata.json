@@ -1,0 +1,10 @@
+{
+  "variantName": "cards-article",
+  "baseBlock": "cards",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": "Vertical list of article rows. Each row has a small thumbnail image on the left and a text column on the right containing a bold title, a short description, and a 'Learn more' link.",
+  "contentPattern": "One row per article. Each row: cell 1 = thumbnail image, cell 2 = title + description + 'Learn more' link.",
+  "usage": "Article/experience list, e.g. 'Exceptional experiences with Saudia'.",
+  "options": [],
+  "memberVariantIds": ["cards-article"]
+}

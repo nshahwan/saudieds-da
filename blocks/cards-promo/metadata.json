@@ -1,0 +1,10 @@
+{
+  "variantName": "cards-promo",
+  "baseBlock": "cards",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": "Grid of promotional image tiles with a full-bleed background photo, overlay label text at the bottom-left, and a green circular arrow button. Single column on mobile, three across on desktop with mixed tile sizes.",
+  "contentPattern": "One row per promo tile. Each row: cell 1 = background image, cell 2 = overlay label + optional CTA link.",
+  "usage": "Promotional tile grid, e.g. 'Plan your next trip'.",
+  "options": [],
+  "memberVariantIds": ["cards-promo"]
+}
