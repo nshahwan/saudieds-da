@@ -1,0 +1,58 @@
+<div class="booking-engine">
+  <nav class="booking-tabs" aria-label="Booking options">
+    <button type="button" class="booking-tab is-active" data-tab="book">Book</button>
+    <button type="button" class="booking-tab" data-tab="manage">Manage</button>
+    <button type="button" class="booking-tab" data-tab="checkin">Check-in</button>
+    <button type="button" class="booking-tab" data-tab="status">Flight status</button>
+    <button type="button" class="booking-tab" data-tab="schedule">Flight schedule</button>
+  </nav>
+
+  <div class="booking-panel" data-panel="book">
+    <div class="booking-toolbar">
+      <div class="booking-trip-types" role="radiogroup" aria-label="Trip type">
+        <label class="booking-trip">
+          <input type="radio" name="trip-type" value="round" checked />
+          <span>Round trip</span>
+        </label>
+        <label class="booking-trip">
+          <input type="radio" name="trip-type" value="oneway" />
+          <span>One way</span>
+        </label>
+        <label class="booking-trip">
+          <input type="radio" name="trip-type" value="multi" />
+          <span>Multi-city</span>
+        </label>
+      </div>
+      <label class="booking-miles">
+        <input type="checkbox" name="book-with-miles" />
+        <span class="booking-miles-track" aria-hidden="true"></span>
+        <span class="booking-miles-label">Book with Miles</span>
+      </label>
+    </div>
+
+    <form class="booking-form" action="/en-SA/Multicity/FlightSearch" method="get">
+      <div class="booking-fields">
+        <div class="booking-field">
+          <label for="booking-from">From</label>
+          <input type="text" id="booking-from" name="B_LOCATION" placeholder="City or airport" autocomplete="off" />
+        </div>
+        <button type="button" class="booking-swap" aria-label="Swap origin and destination">
+          <span aria-hidden="true">&#8646;</span>
+        </button>
+        <div class="booking-field">
+          <label for="booking-to">To</label>
+          <input type="text" id="booking-to" name="E_LOCATION" placeholder="City or airport" autocomplete="off" />
+        </div>
+        <button type="submit" class="booking-search">Search</button>
+      </div>
+    </form>
+
+    <nav class="booking-quicklinks" aria-label="Quick links">
+      <a href="/en-SA/stopover">Stopover</a>
+      <a href="/en-SA/saudia-holidays/holidays-exclusive-offers">Flight + Hotel</a>
+      <a href="/en-SA/umrah/fly-saudia-for-umrah-packages">Umrah</a>
+      <a href="/en-SA/hotels">Hotels</a>
+      <a href="/en-SA/cars">Cars</a>
+    </nav>
+  </div>
+</div>
