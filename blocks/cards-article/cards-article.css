@@ -6,6 +6,36 @@
   --cards-article-desc-color: rgb(0 0 0 / 70%);   /* description text */
 }
 
+/* Section layout: heading/intro on the left, article cards on the right.
+   The section holds a default-content-wrapper (h2 + intro) and the
+   cards-article-wrapper; on desktop they sit in two columns. */
+@media (width >= 900px) {
+  .cards-article-container > .default-content-wrapper,
+  .cards-article-container > .cards-article-wrapper {
+    display: inline-block;
+    vertical-align: top;
+    box-sizing: border-box;
+  }
+
+  .cards-article-container > .default-content-wrapper {
+    width: 40%;
+    padding-right: 48px;
+  }
+
+  .cards-article-container > .cards-article-wrapper {
+    width: 60%;
+    margin-left: -4px; /* neutralize inline-block whitespace */
+  }
+
+  .cards-article-container > .default-content-wrapper h2 {
+    font-size: 48px;
+    line-height: 1.1;
+    font-weight: 700;
+    letter-spacing: -1px;
+    margin: 0 0 24px;
+  }
+}
+
 .cards-article > ul {
   list-style: none;
   margin: 0;
@@ -88,12 +118,16 @@ main .cards-article .cards-article-card-body a:any-link:hover {
 
 @media (width >= 900px) {
   .cards-article > ul {
-    row-gap: 32px;
+    row-gap: 40px;
   }
 
   .cards-article > ul > li {
-    grid-template-columns: 280px 1fr;
-    column-gap: 24px;
+    grid-template-columns: 340px 1fr;
+    column-gap: 32px;
+  }
+
+  .cards-article .cards-article-card-image img {
+    aspect-ratio: 340 / 260;
   }
 
   .cards-article .cards-article-card-body h3 {
