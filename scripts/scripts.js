@@ -197,6 +197,28 @@ async function loadLazy(doc) {
 
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
   loadFonts();
+
+  // eslint-disable-next-line no-use-before-define
+  decorateScrollBackground(main);
+}
+
+/**
+ * Drives the page background from Saudia dark-green to white:
+ * the body carries a dark-green background over the top sections and
+ * flips to the default light background once the "Exceptional experiences"
+ * (cards-article) section scrolls up into view.
+ * @param {Element} main The main element
+ */
+function decorateScrollBackground(main) {
+  const trigger = main.querySelector('.cards-article, .cards-article-container');
+  if (!trigger) return;
+  document.body.classList.add('dark-canvas');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      document.body.classList.toggle('dark-canvas', !entry.isIntersecting && entry.boundingClientRect.top > 0);
+    });
+  }, { rootMargin: '-45% 0px -55% 0px' });
+  observer.observe(trigger);
 }
 
 /**

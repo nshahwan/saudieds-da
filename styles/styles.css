@@ -22,6 +22,7 @@
   /* Saudia brand accents */
   --brand-green: #00803e;
   --brand-green-dark: #026634;
+  --dark-canvas-color: #12321a;
 
   /* fonts */
   --body-font-family: roboto, roboto-fallback, sans-serif;
@@ -82,6 +83,7 @@ body {
   font-family: var(--body-font-family);
   font-size: var(--body-font-size-m);
   line-height: 1.6;
+  transition: background-color 0.5s ease;
 }
 
 body.appear {
@@ -327,3 +329,31 @@ main .section.highlight {
   margin: 0;
   padding: 40px 0;
 }
+
+/* Scroll-driven canvas: the page starts on Saudia dark green over the top
+   sections and flips to white once the "Exceptional experiences" section
+   scrolls into view (the .dark-canvas class is toggled by scripts.js). */
+body.dark-canvas {
+  background-color: var(--dark-canvas-color);
+}
+
+/* On the dark canvas, text sitting directly on the page background flips
+   light so it stays legible; banners and image cards carry their own
+   backdrops and are unaffected. */
+body.dark-canvas .cards-fares .cards-fares-card-body h3 {
+  color: #fff;
+}
+
+body.dark-canvas .cards-fares .cards-fares-card-body p:nth-of-type(2) {
+  color: rgb(255 255 255 / 75%);
+}
+
+/* stylelint-disable no-descending-specificity */
+body.dark-canvas main > .section > .default-content-wrapper,
+body.dark-canvas main > .section > .default-content-wrapper h1,
+body.dark-canvas main > .section > .default-content-wrapper h2,
+body.dark-canvas main > .section > .default-content-wrapper h3,
+body.dark-canvas main > .section > .default-content-wrapper p {
+  color: #fff;
+}
+/* stylelint-enable no-descending-specificity */
