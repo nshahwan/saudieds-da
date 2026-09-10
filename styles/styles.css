@@ -340,7 +340,9 @@ body.dark-canvas {
 /* On the dark canvas, text sitting directly on the page background flips
    light so it stays legible; banners and image cards carry their own
    backdrops and are unaffected. */
-body.dark-canvas .cards-fares .cards-fares-card-body h3 {
+body.dark-canvas .cards-fares .cards-fares-card-body h3,
+body.dark-canvas .cards-article .cards-article-card-body h3,
+body.dark-canvas .cards-promo .cards-promo-card-body h3 {
   color: #fff;
 }
 

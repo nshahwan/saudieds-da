@@ -213,11 +213,14 @@ function decorateScrollBackground(main) {
   const trigger = main.querySelector('.cards-article, .cards-article-container');
   if (!trigger) return;
   document.body.classList.add('dark-canvas');
+  // Flip to white as soon as the "Exceptional experiences" section starts
+  // entering from the bottom, so the whole section (and its dark card
+  // headings) renders on white; stay dark only while it is still fully below.
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       document.body.classList.toggle('dark-canvas', !entry.isIntersecting && entry.boundingClientRect.top > 0);
     });
-  }, { rootMargin: '-45% 0px -55% 0px' });
+  }, { rootMargin: '0px 0px -10% 0px' });
   observer.observe(trigger);
 }
 

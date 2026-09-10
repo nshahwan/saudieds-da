@@ -92,25 +92,43 @@ function decorateSections(navSections) {
 
   wrapper.replaceWith(menus);
 
+  let closeTimer = null;
+  const cancelClose = () => {
+    if (closeTimer) {
+      clearTimeout(closeTimer);
+      closeTimer = null;
+    }
+  };
+  const scheduleClose = (menu) => {
+    cancelClose();
+    closeTimer = setTimeout(() => menu.setAttribute('aria-expanded', 'false'), 180);
+  };
+
   menus.querySelectorAll('.nav-menu').forEach((menu) => {
     const trigger = menu.querySelector('.nav-menu-trigger');
+    const panel = menu.querySelector('.nav-panel');
     trigger.addEventListener('click', (e) => {
       e.stopPropagation();
       const open = menu.getAttribute('aria-expanded') === 'true';
       closeAllMenus(navSections);
       menu.setAttribute('aria-expanded', open ? 'false' : 'true');
     });
-    if (isDesktop.matches) {
-      menu.addEventListener('mouseenter', () => {
-        if (isDesktop.matches) {
-          closeAllMenus(navSections);
-          menu.setAttribute('aria-expanded', 'true');
-        }
+    // Hover: open on enter, and keep open while over the trigger OR its panel
+    // (the panel is positioned outside the trigger's box, so both regions must
+    // cancel the close). A short close delay makes the trigger→panel move
+    // forgiving; the menu stays open until the pointer truly leaves.
+    [menu, panel].forEach((region) => {
+      if (!region) return;
+      region.addEventListener('mouseenter', () => {
+        if (!isDesktop.matches) return;
+        cancelClose();
+        closeAllMenus(navSections);
+        menu.setAttribute('aria-expanded', 'true');
       });
-      menu.addEventListener('mouseleave', () => {
-        if (isDesktop.matches) menu.setAttribute('aria-expanded', 'false');
+      region.addEventListener('mouseleave', () => {
+        if (isDesktop.matches) scheduleClose(menu);
       });
-    }
+    });
   });
 }
 
