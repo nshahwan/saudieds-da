@@ -11,13 +11,17 @@
  */
 
 :root {
-  /* colors */
-  --background-color: white;
-  --light-color: #f8f8f8;
+  /* colors — Saudia brand */
+  --background-color: #fff;
+  --light-color: #f5f5f5;
   --dark-color: #505050;
-  --text-color: #131313;
-  --link-color: #3b63fb;
-  --link-hover-color: #1d3ecf;
+  --text-color: #1a1a1a;
+  --link-color: #00803e;
+  --link-hover-color: #026634;
+
+  /* Saudia brand accents */
+  --brand-green: #00803e;
+  --brand-green-dark: #026634;
 
   /* fonts */
   --body-font-family: roboto, roboto-fallback, sans-serif;
