@@ -2,10 +2,10 @@
   "type": "da",
   "sites": {
     "saudieds-da": {
+      "libraryUrl": "https://main--sta-boilerplate--aemdemos.aem.page/tools/sidekick/library.json",
       "previewOrg": "nshahwan",
       "previewSite": "saudieds-da",
       "contentHostUrl": "https://content.da.live/nshahwan/saudieds-da/",
-      "libraryUrl": "https://main--sta-boilerplate--aemdemos.aem.page/tools/sidekick/library.json",
       "botProtected": true
     }
   }
