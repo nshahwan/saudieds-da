@@ -110,7 +110,7 @@ function decorateSections(navSections) {
     trigger.addEventListener('click', (e) => {
       e.stopPropagation();
       const open = menu.getAttribute('aria-expanded') === 'true';
-      closeAllMenus(navSections);
+      closeAllMenus(menus);
       menu.setAttribute('aria-expanded', open ? 'false' : 'true');
     });
     // Hover: open on enter, and keep open while over the trigger OR its panel
@@ -122,7 +122,7 @@ function decorateSections(navSections) {
       region.addEventListener('mouseenter', () => {
         if (!isDesktop.matches) return;
         cancelClose();
-        closeAllMenus(navSections);
+        closeAllMenus(menus);
         menu.setAttribute('aria-expanded', 'true');
       });
       region.addEventListener('mouseleave', () => {
@@ -130,6 +130,11 @@ function decorateSections(navSections) {
       });
     });
   });
+
+  // Return the live container so callers bind close handlers to the element
+  // that actually holds the menus (the original section may have been the
+  // wrapper that was replaced).
+  return menus;
 }
 
 /**
@@ -171,7 +176,9 @@ export default async function decorate(block) {
   });
 
   const navSections = nav.querySelector('.nav-sections');
-  if (navSections) decorateSections(navSections);
+  // decorateSections returns the live menus container (the section wrapper it
+  // replaced may be detached), so close handlers target the right element.
+  const menusEl = navSections ? decorateSections(navSections) : null;
 
   // hamburger for mobile
   const hamburger = document.createElement('div');
@@ -183,15 +190,23 @@ export default async function decorate(block) {
   nav.prepend(hamburger);
   nav.setAttribute('aria-expanded', 'false');
 
-  // close menus when clicking outside
+  // close the open megamenu on outside-click, scroll, or Escape
   document.addEventListener('click', (e) => {
-    if (!nav.contains(e.target) && navSections) closeAllMenus(navSections);
+    if (!nav.contains(e.target) && menusEl) closeAllMenus(menusEl);
+  });
+  window.addEventListener('scroll', () => {
+    if (menusEl && menusEl.querySelector('.nav-menu[aria-expanded="true"]')) {
+      closeAllMenus(menusEl);
+    }
+  }, { passive: true });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && menusEl) closeAllMenus(menusEl);
   });
 
   // reset state when crossing the desktop/mobile breakpoint
   isDesktop.addEventListener('change', () => {
     toggleMenu(nav, true);
-    if (navSections) closeAllMenus(navSections);
+    if (menusEl) closeAllMenus(menusEl);
   });
 
   const navWrapper = document.createElement('div');
